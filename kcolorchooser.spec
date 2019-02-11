@@ -5,18 +5,18 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kcolorchooser
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kcolorchooser-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kcolorchooser-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kcolorchooser-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kcolorchooser-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kcolorchooser-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kcolorchooser-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
-Requires: kcolorchooser-bin
-Requires: kcolorchooser-data
-Requires: kcolorchooser-license
-Requires: kcolorchooser-locales
+Requires: kcolorchooser-bin = %{version}-%{release}
+Requires: kcolorchooser-data = %{version}-%{release}
+Requires: kcolorchooser-license = %{version}-%{release}
+Requires: kcolorchooser-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 
@@ -26,8 +26,8 @@ No detailed description available
 %package bin
 Summary: bin components for the kcolorchooser package.
 Group: Binaries
-Requires: kcolorchooser-data
-Requires: kcolorchooser-license
+Requires: kcolorchooser-data = %{version}-%{release}
+Requires: kcolorchooser-license = %{version}-%{release}
 
 %description bin
 bin components for the kcolorchooser package.
@@ -58,25 +58,25 @@ locales components for the kcolorchooser package.
 
 
 %prep
-%setup -q -n kcolorchooser-18.08.0
+%setup -q -n kcolorchooser-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535195443
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549864000
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535195443
+export SOURCE_DATE_EPOCH=1549864000
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kcolorchooser
-cp COPYING %{buildroot}/usr/share/doc/kcolorchooser/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/kcolorchooser
+cp COPYING %{buildroot}/usr/share/package-licenses/kcolorchooser/COPYING
 pushd clr-build
 %make_install
 popd
@@ -96,8 +96,8 @@ popd
 /usr/share/icons/hicolor/22x22/apps/kcolorchooser.png
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kcolorchooser/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kcolorchooser/COPYING
 
 %files locales -f kcolorchooser.lang
 %defattr(-,root,root,-)
