@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kcolorchooser
-Version  : 19.12.0
-Release  : 15
-URL      : https://download.kde.org/stable/release-service/19.12.0/src/kcolorchooser-19.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.0/src/kcolorchooser-19.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.0/src/kcolorchooser-19.12.0.tar.xz.sig
+Version  : 19.12.1
+Release  : 16
+URL      : https://download.kde.org/stable/release-service/19.12.1/src/kcolorchooser-19.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.1/src/kcolorchooser-19.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.1/src/kcolorchooser-19.12.1.tar.xz.sig
 Summary  : Color Chooser
 Group    : Development/Tools
 License  : MIT
@@ -58,15 +58,15 @@ locales components for the kcolorchooser package.
 
 
 %prep
-%setup -q -n kcolorchooser-19.12.0
-cd %{_builddir}/kcolorchooser-19.12.0
+%setup -q -n kcolorchooser-19.12.1
+cd %{_builddir}/kcolorchooser-19.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576549221
+export SOURCE_DATE_EPOCH=1578622891
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -83,10 +83,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576549221
+export SOURCE_DATE_EPOCH=1578622891
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcolorchooser
-cp %{_builddir}/kcolorchooser-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/kcolorchooser/2807f3f1c4cb33b214defc4c7ab72f7e4e70a305
+cp %{_builddir}/kcolorchooser-19.12.1/COPYING %{buildroot}/usr/share/package-licenses/kcolorchooser/2807f3f1c4cb33b214defc4c7ab72f7e4e70a305
 pushd clr-build
 %make_install
 popd
