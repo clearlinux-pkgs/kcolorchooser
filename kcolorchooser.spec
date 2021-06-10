@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kcolorchooser
-Version  : 21.04.0
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/21.04.0/src/kcolorchooser-21.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.0/src/kcolorchooser-21.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.0/src/kcolorchooser-21.04.0.tar.xz.sig
+Version  : 21.04.2
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/21.04.2/src/kcolorchooser-21.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.2/src/kcolorchooser-21.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.2/src/kcolorchooser-21.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -59,15 +59,15 @@ locales components for the kcolorchooser package.
 
 
 %prep
-%setup -q -n kcolorchooser-21.04.0
-cd %{_builddir}/kcolorchooser-21.04.0
+%setup -q -n kcolorchooser-21.04.2
+cd %{_builddir}/kcolorchooser-21.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1619208141
+export SOURCE_DATE_EPOCH=1623368624
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -83,10 +83,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1619208141
+export SOURCE_DATE_EPOCH=1623368624
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcolorchooser
-cp %{_builddir}/kcolorchooser-21.04.0/COPYING %{buildroot}/usr/share/package-licenses/kcolorchooser/2807f3f1c4cb33b214defc4c7ab72f7e4e70a305
+cp %{_builddir}/kcolorchooser-21.04.2/COPYING %{buildroot}/usr/share/package-licenses/kcolorchooser/2807f3f1c4cb33b214defc4c7ab72f7e4e70a305
 pushd clr-build
 %make_install
 popd
