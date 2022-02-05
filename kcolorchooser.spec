@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kcolorchooser
-Version  : 21.12.1
-Release  : 35
-URL      : https://download.kde.org/stable/release-service/21.12.1/src/kcolorchooser-21.12.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.1/src/kcolorchooser-21.12.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.1/src/kcolorchooser-21.12.1.tar.xz.sig
+Version  : 21.12.2
+Release  : 36
+URL      : https://download.kde.org/stable/release-service/21.12.2/src/kcolorchooser-21.12.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.12.2/src/kcolorchooser-21.12.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.12.2/src/kcolorchooser-21.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause MIT
@@ -59,15 +59,15 @@ locales components for the kcolorchooser package.
 
 
 %prep
-%setup -q -n kcolorchooser-21.12.1
-cd %{_builddir}/kcolorchooser-21.12.1
+%setup -q -n kcolorchooser-21.12.2
+cd %{_builddir}/kcolorchooser-21.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641960629
+export SOURCE_DATE_EPOCH=1644020734
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -83,11 +83,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1641960629
+export SOURCE_DATE_EPOCH=1644020734
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcolorchooser
-cp %{_builddir}/kcolorchooser-21.12.1/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kcolorchooser/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/kcolorchooser-21.12.1/COPYING %{buildroot}/usr/share/package-licenses/kcolorchooser/2807f3f1c4cb33b214defc4c7ab72f7e4e70a305
+cp %{_builddir}/kcolorchooser-21.12.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kcolorchooser/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/kcolorchooser-21.12.2/COPYING %{buildroot}/usr/share/package-licenses/kcolorchooser/2807f3f1c4cb33b214defc4c7ab72f7e4e70a305
 pushd clr-build
 %make_install
 popd
